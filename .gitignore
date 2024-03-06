@@ -1,0 +1,7 @@
+__pycache__/
+*.png
+lkh_io_files/
+concorde_io_files/
+data/
+data_generator/
+checkpoints/
