@@ -1,0 +1,25 @@
+# LLMs
+openai
+tiktoken
+langchain
+langchian-core
+
+# Web app
+streamlit
+streamlit-folium
+folium
+
+# Google Map API
+googlemaps
+
+# OR-tools
+ortools
+
+# other convenient packages
+torchmetrics
+scipy
+pandas
+matplotlib
+tqdm
+jupyter
+jupyterlab
