@@ -1,4 +1,4 @@
-# <img src="https://github.com/ntt-dkiku/route-explainer/assets/154794155/3ae1a5ea-0262-4120-ad05-0768ca9292f2" align="left" width="70px"> RouteExplainer: An Explanation Framework for Vehicle Routing Problem (Work in progress)
+# <img src="https://github.com/ntt-dkiku/route-explainer/assets/154794155/3ae1a5ea-0262-4120-ad05-0768ca9292f2" align="left" width="70px"> RouteExplainer: An Explanation Framework for Vehicle Routing Problem (PAKDD 2024)
 
 
 <p align="center">
@@ -35,15 +35,25 @@ If you use LKH and Concorde, you need to install them by the following command. 
 python install_solvers.py
 ```
 
-## 🔧 Training and evaluating edge classifiers
+## 🔧 Usage
+Here, we describe the general usage of our code. See [Reproducibility](#rep) for the reproducibility of the experiments in our paper.
 ### Generating synthetic data with labels
+You can generate synthetic dataset by the following command. Here, the ```solver``` generatess routes for given VRP instances, and the ```classifier``` annotates the edges in the generated routes.
+Main options are as follows (check other options by the ```-h``` option): 
+| parameter | options | remarks|
+|-----------|---------|--------|
+| problem   | ```tsptw```, ```pctsp```, ```pctsptw```, ```cvrp```.| |
+| solver    | tsptw: ```ortools```, ```lkh```. pctsp: ```ortools```. pctsptw: ```ortools```. cvrp: ```ortools```, ```lkh```.| available solvers depond on the problem |
+| classifier| tsptw, pctsp: ```ortools```, ```lkh```, ```concorde```. pctsptw: ```ortools```. cvrp: ```ortools```, ```lkh```. | available classifiers depond on the problem |
+
 ```
-python generate_dataset.py --problem tsptw --annotation --parallel
+python generate_dataset.py --problem <problem> --num_nodes <num_nodes> --num_samples 128000 10000 10000  --solver <solver> --classifier <classifier> --random seed 1234 --annotation --parallel
 ```
 
 ### Training
+
 ```
-python train.py
+python train.py --problem <problem> --train_dataset_path <path/to/train_dataset> --valid_dataset_path <path/to/train_dataset> --gpu 0
 ```
 
 ### Evaluation
@@ -59,12 +69,14 @@ streamlit run app.py --server.port <container_port>
 ```
 We also publish this demo on Hugging Face Spaces, so you can easily try it <a href="https://huggingface.co/spaces/oookiku/route-explainer" target="_blank">there</a>.
 
-## 💽 Datasets and checkpoints
+## 💽 Datasets and checkpoints (Work in progress)
 Coming Soon!
 
-## 🧪 Reproducibility
+<div id="rep">
+## 🧪 Reproducibility (Work in progress)
 <!-- Refer to [reproduce_experiments.ipynb](./reproduct_experiments.ipynb). -->
 Coming Soon! 
+</div>
 
 ## 🐞 Bug reports and questions
 If you encounter a bug or have any questions, please post issues in this repo.
