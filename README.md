@@ -44,8 +44,8 @@ Main options are as follows (check other options by the ```-h``` option):
 | parameter | options | remarks|
 |-----------|---------|--------|
 | problem   | ```tsptw```, ```pctsp```, ```pctsptw```, ```cvrp```.| |
-| solver    | tsptw: ```ortools```, ```lkh```. pctsp: ```ortools```. pctsptw: ```ortools```. cvrp: ```ortools```, ```lkh```.| available solvers depond on the problem |
-| classifier| tsptw, pctsp: ```ortools```, ```lkh```, ```concorde```. pctsptw: ```ortools```. cvrp: ```ortools```, ```lkh```. | available classifiers depond on the problem |
+| solver    | tsptw: ```ortools```, ```lkh```. pctsp: ```ortools```. pctsptw: ```ortools```. cvrp: ```ortools```, ```lkh```.| available solvers depend on the problem |
+| classifier| tsptw, pctsp: ```ortools```, ```lkh```, ```concorde```. pctsptw: ```ortools```. cvrp: ```ortools```, ```lkh```. | available classifiers depend on the problem |
 
 ```
 python generate_dataset.py --problem <problem> --num_nodes <num_nodes> --num_samples 128000 10000 10000  --solver <solver> --classifier <classifier> --output_dir data --random_seed 1234 --annotation --parallel
